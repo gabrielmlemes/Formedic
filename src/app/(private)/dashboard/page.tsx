@@ -1,3 +1,5 @@
+import DoctorsPageHeader from './_components/page-header';
+
 export default function Page() {
-  return <div>Dashboard</div>;
+  return <DoctorsPageHeader />;
 }
