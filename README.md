@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ForMedic 🩺
 
-## Getting Started
+O ForMedic é uma plataforma SaaS moderna para gestão médica, desenvolvida como parte de um **desafio técnico para Desenvolvedor Front-End (Pleno/Sênior)**. O projeto foca em organização de componentes, simplicidade e clareza de código.
 
-First, run the development server:
+## 🎯 Objetivo do Projeto
 
+Implementar uma interface de **agenda diária** funcional que permita a visualização e criação de agendamentos médicos, atendendo aos requisitos de sistemas administrativos modernos.
+
+## ✅ Requisitos Implementados
+
+### Obrigatórios (Concluídos)
+- [x] **Lista de horários:** Visualização clara da jornada diária.
+- [x] **Exibição de agendamentos:** Listagem dinâmica dos compromissos existentes.
+- [x] **Criação de agendamentos:** Botão e fluxo dedicado para novos registros.
+
+### ⭐ Diferenciais e Extras
+- [x] **Modal para criação:** Interface amigável e não intrusiva.
+- [x] **Validações de Formulário:** Uso de Zod e React Hook Form para garantir integridade dos dados.
+- [x] **Arquitetura Escalável:** Organização clara de pastas seguindo padrões modernos do Next.js.
+- [x] **Landing Page:** Página inicial polida com estética SaaS.
+- [x] **Persistência Real:** Integração com Banco de Dados (PostgreSQL + Drizzle ORM) em vez de apenas dados mockados.
+
+## 🛠️ Stack Tecnológica
+
+- **Framework:** [Next.js 15+](https://nextjs.org/) (App Router)
+- **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
+- **Estilização:** [Tailwind CSS 4](https://tailwindcss.com/)
+- **Componentes UI:** [Radix UI](https://www.radix-ui.com/) & [Lucide React](https://lucide.dev/)
+- **ORM:** [Drizzle ORM](https://orm.drizzle.team/)
+- **Banco de Dados:** PostgreSQL (via `postgres` adapter)
+- **Formulários:** [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
+
+## ⚙️ Configuração do Projeto
+
+### Pré-requisitos
+- Node.js 20+
+- Instância do PostgreSQL
+
+### Instalação e Execução
+
+1. Instale as dependências:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Configure o banco de dados no `.env`:
+```env
+DATABASE_URL=postgres://usuario:senha@localhost:5432/formedic
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Sincronize o banco:
+```bash
+npm run db:push
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Rode o projeto:
+```bash
+npm run dev
+```
 
-## Learn More
+O projeto estará disponível em `http://localhost:3000`.
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Estrutura de Pastas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+O projeto utiliza uma estrutura modular dentro de `src/app`:
+- `(public)`: Landing Page.
+- `(private)`: Área administrativa protegida (Dashboard e Agendamentos).
+- `_components`, `_actions`, `_schemas`: Localização de recursos próximos ao seu contexto de uso (co-location).

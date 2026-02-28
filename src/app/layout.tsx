@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: 'ForMedic',
     images: [
       {
-        url: '/public/lp.jpg',
+        url: 'https://formedic-tau.vercel.app/lp.jpg',
         width: 800,
         height: 600,
         alt: 'ForMedic - Plataforma de Agendamento Online',
