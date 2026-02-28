@@ -1,82 +1,79 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
-export default function Home() {
+import { Button } from '@/components/ui/button';
+
+export default function LandingPage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{' '}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">Save and see your changes instantly.</li>
-        </ol>
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background">
+      {/* Background decoration */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-primary/15 blur-[120px]" />
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <header className="absolute top-0 w-full p-6 flex justify-between items-center z-10 max-w-7xl mx-auto">
+        <div className="flex items-center gap-2">
+          <Image
+            src="/logo-formedic.png"
+            alt="ForMedic Logo"
+            width={40}
+            height={40}
+            className="rounded-lg"
+          />
+          <span className="font-bold text-2xl tracking-tight text-foreground">ForMedic</span>
+        </div>
+        <nav className="hidden md:flex gap-8 items-center">
+          <Link
+            href="#"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Funcionalidades
+          </Link>
+          <Link
+            href="#"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Read our docs
-          </a>
+            Preços
+          </Link>
+          <Link
+            href="#"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Sobre
+          </Link>
+        </nav>
+      </header>
+
+      <main className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto">
+        <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 mb-6 text-sm font-medium text-primary mb-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+          ✨ Gestão médica simplificada para o seu consultório
+        </div>
+
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground mb-6 leading-tight">
+          Sua clínica, <span className="text-primary">organizada</span> e{' '}
+          <span className="text-primary">eficiente</span>.
+        </h1>
+
+        <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
+          A plataforma completa para médicos que buscam otimizar agendamentos, prontuários e a
+          gestão financeira em um só lugar.
+        </p>
+
+        <div className="w-full sm:w-auto">
+          <Button
+            size="lg"
+            className="text-lg h-14 px-8 rounded-full shadow-lg shadow-primary/20"
+            asChild
+          >
+            <Link href="/dashboard">Ir para o Dashboard</Link>
+          </Button>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src="/window.svg" alt="Window icon" width={16} height={16} />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="absolute bottom-0 w-full p-8 text-center text-sm text-muted-foreground z-10">
+        © {new Date().getFullYear()} ForMedic. Todos os direitos reservados.
       </footer>
     </div>
   );
